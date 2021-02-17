@@ -1,18 +1,43 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <Card :movie="{ title: 'Titanic' }" />
+    <h2 class="title" @click="reverseTitle">{{ title }}</h2>
+    <Search />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import Card from "@/components/Card.vue";
+import { defineComponent, ref } from "vue";
+import Search from "@/components/Search.vue";
 
 export default defineComponent({
   name: "Home",
   components: {
-    Card
+    Search
+  },
+  setup() {
+    let reverse = false;
+    const title = ref("D & C's Movie List");
+
+    function setTitle() {
+      title.value = reverse ? `C & D's` : `D & C's`;
+      title.value += " Movie List";
+    }
+
+    function reverseTitle() {
+      reverse = !reverse;
+      setTitle();
+    }
+    return {
+      title,
+      reverseTitle
+    };
   }
 });
 </script>
+
+<style scoped>
+.title {
+  cursor: pointer;
+  text-align: center;
+}
+</style>

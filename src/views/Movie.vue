@@ -1,0 +1,57 @@
+<template>
+  <router-link to="/" class="back">Back</router-link>
+  <div class="movie" v-if="movie">
+    <img :src="movie.Poster" />
+    <div>
+      <span class="detail title">{{ movie.Title }}</span>
+      <span class="detail year"> ({{ movie.Year }})</span>
+      <span class="detail runtime"> {{ movie.Runtime }}</span>
+    </div>
+    <div class="detail actors">{{ movie.Actors }}</div>
+    <div class="detail ratings">
+      <div v-for="rating in movie.Ratings" :key="rating.Source" class="rating">
+        {{ rating.Value }}
+      </div>
+    </div>
+    <div class="detail plot">{{ movie.Plot }}</div>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent, onMounted } from "vue";
+import { useOmdb } from "@/store";
+
+export default defineComponent({
+  name: "Movie",
+  props: {
+    imdbID: {
+      type: String,
+      default: (): string => "tt3896198"
+    }
+  },
+  setup(props) {
+    const omdbStore = useOmdb();
+    const movie = omdbStore.movie;
+    async function init() {
+      await omdbStore.getByImdbId(props.imdbID);
+    }
+    onMounted(init);
+    return {
+      movie
+    };
+  }
+});
+</script>
+
+<style scoped>
+img {
+  width: 100%;
+}
+.detail {
+  margin: 10px 0;
+}
+.ratings {
+  display: flex;
+  justify-content: space-between;
+}
+</style>
