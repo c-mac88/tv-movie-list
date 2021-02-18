@@ -1,6 +1,7 @@
 <template>
   <div class="search">
     <input
+      class="search-input"
       placeholder="Search"
       type="text"
       :value="searchTerm"
@@ -70,12 +71,29 @@ export default defineComponent({
   position: relative;
   z-index: 1;
 }
-input {
+.search-input::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  font-family: "Architects Daughter", cursive;
+}
+.search-input::-moz-placeholder {
+  /* Firefox 19+ */
+  font-family: "Architects Daughter", cursive;
+}
+.search-input::-ms-input-placeholder {
+  /* IE 10+ */
+  font-family: "Architects Daughter", cursive;
+}
+.search-input::-moz-placeholder {
+  /* Firefox 18- */
+  font-family: "Architects Daughter", cursive;
+}
+.search-input {
   width: 100%;
   padding: 15px;
   border: none;
   box-shadow: 0 2px 4px 0 rgba(31, 62, 90, 0.5);
   border-radius: 4px;
+  font-family: "Architects Daughter", cursive;
 }
 .button-group {
   position: absolute;
@@ -88,6 +106,7 @@ button {
   padding: 15px;
   border: none;
   border-radius: 4px;
+  font-family: "Architects Daughter", cursive;
   &.clear {
     color: grey;
     background: none;

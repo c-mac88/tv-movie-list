@@ -1,5 +1,5 @@
 <template>
-  <router-link to="/movies" class="back">Back</router-link>
+  <router-link to="/movies">Back</router-link>
   <div class="movie" v-if="movie">
     <img :src="movie.Poster" />
     <div class="details">
@@ -61,6 +61,12 @@ export default defineComponent({
 .movie {
   display: flex;
   flex-direction: column;
+  margin-top: 15px;
+}
+img {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 15px;
 }
 @media screen and (min-width: 768px) {
   .movie {
@@ -69,10 +75,9 @@ export default defineComponent({
   .details {
     padding: 30px;
   }
-}
-img {
-  width: 100%;
-  max-width: 500px;
+  img {
+    margin: 0;
+  }
 }
 .detail {
   margin: 10px 0;

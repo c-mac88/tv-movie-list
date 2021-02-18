@@ -67,6 +67,7 @@ button {
   border-radius: 4px;
   border: none;
   margin-bottom: 15px;
+  font-family: "Architects Daughter", cursive;
   &.primary {
     background-color: #1f3e5a;
     box-shadow: 0 2px 4px 0 rgba(31, 62, 90, 0.5);

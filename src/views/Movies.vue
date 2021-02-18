@@ -53,6 +53,7 @@ export default defineComponent({
 * {
   font-family: "Architects Daughter", cursive;
 }
+
 .title {
   cursor: pointer;
   text-align: center;
