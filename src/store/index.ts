@@ -33,6 +33,7 @@ export function useOmdb() {
 
   function clearSearchResults() {
     state.value.searchResults = [];
+    state.value.movie = undefined;
   }
 
   return {

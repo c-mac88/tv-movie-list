@@ -14,3 +14,13 @@ export const useTabs = (tabs: string[]) => {
     select
   };
 };
+
+export const createDebounce = () => {
+  let timeout: number | undefined = undefined;
+  return function(fnc: Function, delayMs: number) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      fnc();
+    }, delayMs || 500);
+  };
+};

@@ -1,11 +1,15 @@
 <template>
   <div class="search">
-    <input placeholder="Search" type="text" v-model="searchTerm" />
+    <input
+      placeholder="Search"
+      type="text"
+      :value="searchTerm"
+      @input="debounce(() => handleSearch($event.target.value), 500)"
+    />
     <div class="button-group">
       <button v-if="showClearButton" class="clear" @click="handleClear">
         Clear
       </button>
-      <button class="primary" @click="handleSearch">Go</button>
     </div>
     <div class="search-results" v-if="searchResults?.length > 0">
       <SearchResult
@@ -18,9 +22,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed } from "vue";
+import { defineComponent, ref, computed, onMounted } from "vue";
 import { useOmdb } from "@/store";
 import SearchResult from "@/components/SearchResult.vue";
+import { createDebounce } from "@/helpers";
 
 export default defineComponent({
   name: "Search",
@@ -28,20 +33,22 @@ export default defineComponent({
     SearchResult
   },
   setup() {
-    const omdbStore = useOmdb();
+    const { search, searchResults, clearSearchResults } = useOmdb();
     const searchTerm = ref("");
-    const searchResults = omdbStore.searchResults;
     const showClearButton = computed(() => {
       return searchTerm.value.length > 0 || searchResults.value.length > 0;
     });
 
-    async function handleSearch() {
-      await omdbStore.search(searchTerm.value);
+    onMounted(clearSearchResults);
+
+    async function handleSearch(value: string) {
+      searchTerm.value = value;
+      await search(searchTerm.value);
     }
 
     function handleClear() {
       searchTerm.value = "";
-      omdbStore.clearSearchResults();
+      clearSearchResults();
     }
 
     return {
@@ -49,7 +56,8 @@ export default defineComponent({
       handleSearch,
       handleClear,
       searchResults,
-      showClearButton
+      showClearButton,
+      debounce: createDebounce()
     };
   }
 });
@@ -60,12 +68,13 @@ export default defineComponent({
 .search {
   width: 100%;
   position: relative;
-  z-inedx: 1;
+  z-index: 1;
 }
 input {
   width: 100%;
   padding: 15px;
-  border: 1px solid blue;
+  border: none;
+  box-shadow: 0 2px 4px 0 rgba(31, 62, 90, 0.5);
   border-radius: 4px;
 }
 .button-group {
@@ -84,15 +93,15 @@ button {
     background: none;
   }
   &.primary {
-    background: blue;
-    color: white;
+    background: #1f3e5a;
+    color: #fcfbfe;
   }
 }
 .search-results {
   width: 100%;
   padding: 10px;
-  background-color: white;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.21);
+  background-color: #fcfbfe;
+  box-shadow: 0 2px 4px 0 rgba(28, 37, 60, 0.5);
   border-radius: 0px 0px 4px 4px;
   position: absolute;
   top: 100%;

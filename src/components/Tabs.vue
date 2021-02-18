@@ -45,7 +45,7 @@ export default defineComponent({
   display: flex;
   height: 50px;
   width: 100%;
-  border: 1px solid blue;
+  box-shadow: 0 2px 4px 0 rgba(31, 62, 90, 0.5);
   border-radius: 4px;
 }
 .tab {
@@ -55,10 +55,9 @@ export default defineComponent({
   align-items: center;
   justify-content: center;
   &.selected {
-    border: 1px solid blue;
     border-radius: 4px;
-    background-color: blue;
-    color: white;
+    background-color: #1f3e5a;
+    color: #fcfbfe;
   }
 }
 </style>

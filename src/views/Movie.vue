@@ -2,19 +2,25 @@
   <router-link to="/movies" class="back">Back</router-link>
   <div class="movie" v-if="movie">
     <img :src="movie.Poster" />
-    <div>
-      <span class="detail title">{{ movie.Title }}</span>
-      <span class="detail year"> ({{ movie.Year }})</span>
-      <span class="detail runtime"> {{ movie.Runtime }}</span>
-    </div>
-    <div class="detail actors">{{ movie.Actors }}</div>
-    <div class="detail ratings">
-      <div v-for="rating in movie.Ratings" :key="rating.Source" class="rating">
-        {{ rating.Value }}
+    <div class="details">
+      <div>
+        <span class="detail title">{{ movie.Title }}</span>
+        <span class="detail year"> ({{ movie.Year }})</span>
+        <span class="detail runtime"> {{ movie.Runtime }}</span>
       </div>
+      <div class="detail actors">{{ movie.Actors }}</div>
+      <div class="detail ratings">
+        <div
+          v-for="rating in movie.Ratings"
+          :key="rating.Source"
+          class="rating"
+        >
+          {{ rating.Value }}
+        </div>
+      </div>
+      <div class="detail plot">{{ movie.Plot }}</div>
+      <Actions />
     </div>
-    <div class="detail plot">{{ movie.Plot }}</div>
-    <Actions />
   </div>
 </template>
 
@@ -52,8 +58,21 @@ export default defineComponent({
 * {
   font-family: "Architects Daughter", cursive;
 }
+.movie {
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 768px) {
+  .movie {
+    flex-direction: row;
+  }
+  .details {
+    padding: 30px;
+  }
+}
 img {
   width: 100%;
+  max-width: 500px;
 }
 .detail {
   margin: 10px 0;

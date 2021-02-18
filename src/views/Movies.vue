@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="movies">
     <h2 class="title" @click="reverseTitle">{{ title }}</h2>
     <Search />
     <Tabs>
@@ -21,7 +21,7 @@ import Complete from "@/components/Complete.vue";
 import Incomplete from "@/components/Incomplete.vue";
 
 export default defineComponent({
-  name: "MovieList",
+  name: "Movies",
   components: {
     Search,
     Tabs,
