@@ -2,6 +2,7 @@
   <div class="movies">
     <h2 class="title" @click="reverseTitle">{{ title }}</h2>
     <Search />
+    <p class="subtitle">Search for a movie to add it to the list!</p>
     <Tabs>
       <template v-slot:Complete>
         <Complete />
@@ -52,6 +53,10 @@ export default defineComponent({
 <style scoped>
 * {
   font-family: "Architects Daughter", cursive;
+}
+
+.subtitle {
+  text-align: center;
 }
 
 .title {

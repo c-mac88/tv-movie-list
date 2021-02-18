@@ -75,6 +75,10 @@ export const useMoviesCollection = () => {
     }
   };
 
+  const deleteMovie = (id: string) => {
+    return moviesCollection.doc(id).delete();
+  };
+
   const getNewMovieRequest = (movie: Movie | undefined): MovieRequest => {
     return {
       imdbId: movie?.imdbID,
@@ -99,6 +103,7 @@ export const useMoviesCollection = () => {
     movieRecord,
     createMovie,
     updateMovie,
+    deleteMovie,
     getMovie,
     getNewMovieRequest
   };

@@ -41,7 +41,7 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .tabs {
-  margin-top: 30px;
+  margin: 30px 0;
   display: flex;
   height: 50px;
   width: 100%;

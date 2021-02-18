@@ -2,7 +2,8 @@
   <ListItem
     v-for="movie in moviesComplete"
     :key="movie.imdbId"
-    :id="movie.imdbId"
+    :imdbId="movie.imdbId"
+    :id="movie.id"
     :value="movie.title"
   ></ListItem>
 </template>
@@ -30,8 +31,4 @@ export default defineComponent({
 });
 </script>
 
-<style scoped lang="scss">
-.list-item {
-  padding: 15px;
-}
-</style>
+<style scoped lang="scss"></style>

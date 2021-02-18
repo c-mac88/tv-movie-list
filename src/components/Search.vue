@@ -74,18 +74,22 @@ export default defineComponent({
 .search-input::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
   font-family: "Architects Daughter", cursive;
+  color: grey;
 }
 .search-input::-moz-placeholder {
   /* Firefox 19+ */
   font-family: "Architects Daughter", cursive;
+  color: grey;
 }
 .search-input::-ms-input-placeholder {
   /* IE 10+ */
   font-family: "Architects Daughter", cursive;
+  color: grey;
 }
 .search-input::-moz-placeholder {
   /* Firefox 18- */
   font-family: "Architects Daughter", cursive;
+  color: grey;
 }
 .search-input {
   width: 100%;
