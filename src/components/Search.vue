@@ -23,7 +23,7 @@ import { useOmdb } from "@/store";
 import SearchResult from "@/components/SearchResult.vue";
 
 export default defineComponent({
-  name: "Card",
+  name: "Search",
   components: {
     SearchResult
   },
@@ -60,6 +60,7 @@ export default defineComponent({
 .search {
   width: 100%;
   position: relative;
+  z-inedx: 1;
 }
 input {
   width: 100%;
@@ -90,6 +91,7 @@ button {
 .search-results {
   width: 100%;
   padding: 10px;
+  background-color: white;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.21);
   border-radius: 0px 0px 4px 4px;
   position: absolute;

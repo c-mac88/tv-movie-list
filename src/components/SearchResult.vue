@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="`/${searchResult.imdbID}`" class="search-result">
+  <router-link :to="`/movies/${searchResult.imdbID}`" class="search-result">
     <div>{{ searchResult.Title }}</div>
     <div>{{ searchResult.Year }}</div>
   </router-link>

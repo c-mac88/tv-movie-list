@@ -1,5 +1,5 @@
 <template>
-  <router-link to="/" class="back">Back</router-link>
+  <router-link to="/movies" class="back">Back</router-link>
   <div class="movie" v-if="movie">
     <img :src="movie.Poster" />
     <div>
@@ -14,15 +14,20 @@
       </div>
     </div>
     <div class="detail plot">{{ movie.Plot }}</div>
+    <Actions />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, onMounted } from "vue";
 import { useOmdb } from "@/store";
+import Actions from "@/components/Actions.vue";
 
 export default defineComponent({
   name: "Movie",
+  components: {
+    Actions
+  },
   props: {
     imdbID: {
       type: String,
@@ -44,6 +49,9 @@ export default defineComponent({
 </script>
 
 <style scoped>
+* {
+  font-family: "Architects Daughter", cursive;
+}
 img {
   width: 100%;
 }

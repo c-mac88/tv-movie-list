@@ -10,7 +10,13 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import(/* webpackChunkName: "home" */ "../views/Home.vue")
   },
   {
-    path: "/:id",
+    path: "/movies",
+    name: "Movies",
+    component: () =>
+      import(/* webpackChunkName: "movies" */ "../views/Movies.vue")
+  },
+  {
+    path: "/movies/:id",
     name: "Movie",
     props: route => ({ imdbID: route.params.id }),
     component: () =>

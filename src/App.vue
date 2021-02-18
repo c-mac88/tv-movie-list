@@ -17,4 +17,9 @@ body {
 #app {
   margin: 30px;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
 </style>
