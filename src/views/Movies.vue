@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent } from "vue";
 import Search from "@/components/Search.vue";
 import Tabs from "@/components/Tabs.vue";
 import Complete from "@/components/Complete.vue";

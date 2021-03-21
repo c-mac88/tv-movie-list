@@ -55,9 +55,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-* {
-  font-family: "Architects Daughter", cursive;
-}
 .movie {
   display: flex;
   flex-direction: column;

@@ -73,22 +73,18 @@ export default defineComponent({
 }
 .search-input::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
-  font-family: "Architects Daughter", cursive;
   color: grey;
 }
 .search-input::-moz-placeholder {
   /* Firefox 19+ */
-  font-family: "Architects Daughter", cursive;
   color: grey;
 }
 .search-input::-ms-input-placeholder {
   /* IE 10+ */
-  font-family: "Architects Daughter", cursive;
   color: grey;
 }
 .search-input::-moz-placeholder {
   /* Firefox 18- */
-  font-family: "Architects Daughter", cursive;
   color: grey;
 }
 .search-input {
@@ -97,7 +93,6 @@ export default defineComponent({
   border: none;
   box-shadow: 0 2px 4px 0 rgba(31, 62, 90, 0.5);
   border-radius: 4px;
-  font-family: "Architects Daughter", cursive;
 }
 .button-group {
   position: absolute;
@@ -110,7 +105,6 @@ button {
   padding: 15px;
   border: none;
   border-radius: 4px;
-  font-family: "Architects Daughter", cursive;
   &.clear {
     color: grey;
     background: none;
