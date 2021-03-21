@@ -1,6 +1,6 @@
 <template>
   <div class="movies">
-    <h2 class="title" @click="reverseTitle">{{ title }}</h2>
+    <h2 class="title">Movie List</h2>
     <Search />
     <p class="subtitle">Search for a movie to add it to the list!</p>
     <Tabs>
@@ -28,33 +28,11 @@ export default defineComponent({
     Tabs,
     Complete,
     Incomplete
-  },
-  setup() {
-    let reverse = false;
-    const title = ref("C & D's Movie List");
-
-    function setTitle() {
-      title.value = reverse ? `D & C's` : `C & D's`;
-      title.value += " Movie List";
-    }
-
-    function reverseTitle() {
-      reverse = !reverse;
-      setTitle();
-    }
-    return {
-      title,
-      reverseTitle
-    };
   }
 });
 </script>
 
 <style scoped>
-* {
-  font-family: "Architects Daughter", cursive;
-}
-
 .subtitle {
   text-align: center;
 }
